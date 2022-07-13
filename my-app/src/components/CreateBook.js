@@ -23,6 +23,7 @@ class CreateBook extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    window.history.back();
 
     const data = {
       title: this.state.title,

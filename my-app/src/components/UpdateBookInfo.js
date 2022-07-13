@@ -17,10 +17,11 @@ class UpdateBookInfo extends Component {
   }
 
   componentDidMount() {
-    // console.log("Print id: " + this.props.match.params.id);
+    // console.log("Print id: " + window.location.href.split('/')[4]);
     axios
-      .get('http://localhost:8082/api/books/'+this.props.match.params.id)
+      .get('http://localhost:8082/api/books/'+window.location.href.split('/')[4])
       .then(res => {
+        console.log("Res : "+res.data.title);
         // this.setState({...this.state, book: res.data})
         this.setState({
           title: res.data.title,
@@ -53,9 +54,11 @@ class UpdateBookInfo extends Component {
     };
 
     axios
-      .put('http://localhost:8082/api/books/'+this.props.match.params.id, data)
+      .put('http://localhost:8082/api/books/'+window.location.href.split('/')[4], data)
       .then(res => {
-        this.props.history.push('/show-book/'+this.props.match.params.id);
+        window.history.back();
+        // window.history.back();
+        // this.props.history.push('/show-book/'+window.location.href.split('/')[4]);
       })
       .catch(err => {
         console.log("Error in UpdateBookInfo!");

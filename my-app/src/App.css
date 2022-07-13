@@ -20,7 +20,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #eae30b;
 }
 
 @keyframes App-logo-spin {
@@ -64,7 +64,7 @@
 .list {
   display: grid;
   margin: 20px 0 50px 0;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 1fr;
   grid-gap: 2em;
 }

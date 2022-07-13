@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import CreateBook from './components/CreateBook';
@@ -10,17 +10,16 @@ import UpdateBookInfo from './components/UpdateBookInfo';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Route exact path='/' component={ShowBookList} />
-          <Route path='/create-book' component={CreateBook} />
-          <Route path='/edit-book/:id' component={UpdateBookInfo} />
-          <Route path='/show-book/:id' component={ShowBookDetails} />
-        </div>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<ShowBookList />} />
+          <Route path='/create-book' element={<CreateBook />} />
+          <Route path='/edit-book/:id' element={<UpdateBookInfo />} />
+          <Route path='/show-book/:id' element={<ShowBookDetails />} />
+        </Routes>
+      </BrowserRouter>
     );
   }
 }
-
 
 export default App;

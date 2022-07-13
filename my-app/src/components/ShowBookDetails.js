@@ -10,13 +10,18 @@ class showBookDetails extends Component {
       book: {}
     };
   }
+  
 
   componentDidMount() {
-    // console.log("Print id: " + this.props.match.params.id);
+
+    const id = this.props?.location?.state || "";
+    console.log("Id : "+id);
+    
+    console.log("Print ID : " +  window.location.href.split('/')[4]);
     axios
-      .get('http://localhost:8082/api/books/'+this.props.match.params.id)
+      .get('http://localhost:8082/api/books/'+window.location.href.split('/')[4])
       .then(res => {
-        // console.log("Print-showBookDetails-API-response: " + res.data);
+        console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
           book: res.data
         })
@@ -30,7 +35,9 @@ class showBookDetails extends Component {
     axios
       .delete('http://localhost:8082/api/books/'+id)
       .then(res => {
-        this.props.history.push("/");
+        window.history.back();
+        // window.history.push("/");
+        // this.props.history.push("/");
       })
       .catch(err => {
         console.log("Error form ShowBookDetails_deleteClick");
@@ -39,6 +46,8 @@ class showBookDetails extends Component {
 
 
   render() {
+
+    
 
     const book = this.state.book;
     let BookItem = <div>
@@ -111,11 +120,11 @@ class showBookDetails extends Component {
 
           <div className="row">
             <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,book._id)}>Delete Book</button><br />
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, window.location.href.split('/')[4])}>Delete Book</button><br />
             </div>
 
             <div className="col-md-6">
-              <Link to={`/edit-book/${book._id}`} className="btn btn-outline-info btn-lg btn-block">
+              <Link to={`/edit-book/${window.location.href.split('/')[4]}`} className="btn btn-outline-info btn-lg btn-block">
                     Edit Book
               </Link>
               <br />
