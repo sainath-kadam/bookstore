@@ -17,9 +17,9 @@ class showBookDetails extends Component {
     const id = this.props?.location?.state || "";
     console.log("Id : "+id);
     
-    console.log("Print ID : " +  window.location.href.split('/')[4]);
+    console.log("Print ID : " +  window.location.href.split('/')[3]);
     axios
-      .get('http://localhost:8082/api/books/'+window.location.href.split('/')[4])
+      .get('http://localhost:8082/api/books/'+window.location.href.split('/')[3])
       .then(res => {
         console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
@@ -109,7 +109,8 @@ class showBookDetails extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Book's Record</h1>
               <p className="lead text-center">
-                  View Book's Info
+                View Book's Info
+                
               </p>
               <hr /> <br />
             </div>
