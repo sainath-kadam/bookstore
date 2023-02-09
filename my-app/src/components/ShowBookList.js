@@ -62,8 +62,14 @@ class ShowBookList extends Component {
           <div className="list">
                 {bookList}
           </div>
+          <div>
+        <div class="footer">
+            <p>All rights reserved @sainath kadam</p>
+          </div>
+    </div>
         </div>
       </div>
+      
     );
   }
 }
