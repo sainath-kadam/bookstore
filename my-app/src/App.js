@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import FooterPage from './components/footerPage';
 import ContactPage from './components/ContactPage';
 import AboutPage from './components/AboutPage';
+import Main from './components/Main';
 
 
 class App extends Component {
@@ -20,7 +21,7 @@ class App extends Component {
       <BrowserRouter>
       <Navbar/>
         <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<Main />} />
         <Route path='ContactPage' element={<ContactPage />} />
         <Route path='AboutPage' element={<AboutPage />} />
           <Route path='ShowBookList' element={<ShowBookList />} />
